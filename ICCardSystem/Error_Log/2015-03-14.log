@@ -1,0 +1,72 @@
+***********************************************************************
+记录时间：2015-03-14 14:36:07
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 14:36:29
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:13:07
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:16:57
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:18:49
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:37:51
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:52:17
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 20:57:35
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109
+***********************************************************************
+记录时间：2015-03-14 21:07:03
+错误信息：对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+跟踪记录：
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 ICCardSystem.Utility.DALBase.SaveAllChanges() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\DALBase.cs:行号 109

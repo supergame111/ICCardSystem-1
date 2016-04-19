@@ -1,0 +1,17 @@
+
+        .printTable {
+            border-collapse: collapse;
+            border: solid #999;
+            border-width: 1px 0 0 1px;
+            margin: auto;
+        }
+
+        .printTr, .printTd {
+            border: solid #999;
+            border-width: 0 1px 1px 0;
+            padding: 2px;
+        }
+
+        .printTd {
+            text-align: center;
+        }

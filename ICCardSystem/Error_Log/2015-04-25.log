@@ -1,0 +1,33 @@
+***********************************************************************
+记录时间：2015-04-25 15:49:30
+错误信息：指定的架构无效。错误: 
+Models.ICModel.msl(128,12) : 错误 2019: 指定的成员映射无效。类型“ICModel.wxdj”中的成员“hb”的类型“Edm.String[Nullable=False,DefaultValue=,MaxLength=,Unicode=,FixedLength=]”与类型“ICModel.Store.wxdjSet”中的成员“hb”的“SqlServer.tinyint[Nullable=False,DefaultValue=]”不兼容。
+跟踪记录：
+   在 System.Data.Entity.Core.Mapping.StorageMappingItemCollection.Init(EdmItemCollection edmCollection, StoreItemCollection storeCollection, IEnumerable`1 xmlReaders, IList`1 filePaths, Boolean throwOnError)
+   在 System.Data.Entity.Core.Mapping.StorageMappingItemCollection..ctor(EdmItemCollection edmCollection, StoreItemCollection storeCollection, IEnumerable`1 xmlReaders, IList`1 filePaths)
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataCache.LoadStoreCollection(EdmItemCollection edmItemCollection, MetadataArtifactLoader loader)
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataCache.<>c__DisplayClass5.<>c__DisplayClass7.<GetMetadataWorkspace>b__1()
+   在 System.Lazy`1.CreateValue()
+   在 System.Lazy`1.LazyInitValue()
+   在 System.Lazy`1.get_Value()
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataCache.<>c__DisplayClass5.<>c__DisplayClass7.<GetMetadataWorkspace>b__4()
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.LoadAndCheckItemCollection[T](Func`1 itemCollectionLoader)
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.<>c__DisplayClass16.<.ctor>b__f()
+   在 System.Lazy`1.CreateValue()
+   在 System.Lazy`1.LazyInitValue()
+   在 System.Lazy`1.get_Value()
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetItemCollection(DataSpace dataSpace, Boolean required)
+   在 System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetItemCollection(DataSpace dataSpace)
+   在 System.Data.Entity.Core.Objects.ObjectContext.InitializeMappingViewCacheFactory(DbContext owner)
+   在 System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   在 System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection)
+   在 System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   在 System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   在 System.Data.Entity.Internal.InternalContext.Initialize()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 ICCardSystem.Utility.BaseHelper.InitData() 位置 f:\Visual Studio 2013\ICCardSystem\ICCardSystem\Utility\BaseHelper.cs:行号 34

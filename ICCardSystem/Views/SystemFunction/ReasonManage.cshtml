@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "ReasonManage";
+}
+
+
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDateEditor.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div style="clear:both;margin-left:30px; margin-top:30px;  width:900px">
+        <label>原因管理</label>
+        <br />
+        <br />      
+        <div>
+            <table>
+                <tr>
+                    <td>原因种类</td>
+                    <td>
+                        <select id="reasons">
+                            <option>解锁原因</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>原因描述</td>
+                    <td><input type="text" id="ms" style="width: 250px" /></td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear:both">
+            <input type="button" value="确定" id="confirmBtn" style="width:60px" />
+            <input type="button" value="返回" id="returnBtn" style="margin-left: 60px;" />
+        </div>
+    </div>
+
+</body>
+</html>
+

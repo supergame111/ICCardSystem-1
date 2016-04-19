@@ -1,0 +1,168 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/core/base.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/ligerui.min.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDateEditor.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.PrintArea.js" type="text/javascript"></script>
+    <link href="~/Content/PrintCSS.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="div1" class="divFont" style="height:800px;float:left;margin-left: 30px; margin-top: 10px;">
+        <label>月报表</label>
+        <br />
+        <br />
+        <h2>营业月报表</h2>
+        <br />
+        <br />
+        <div>
+            <div style="display:inline">
+                日期起
+            </div>
+            <div style="display:inline-block">
+                <input class="l-text-field" id="bdate1" type="text">
+            </div>
+            <div style="display:inline">
+                至
+            </div>
+            <div style="display:inline-block">
+                <input class="l-text-field" id="edate1" type="text">
+            </div>        
+        </div>
+        <div style="clear:both">
+            <br />
+            <input type="button" value="营业报表" id="yybbBtn" class="btn btn-default" style="width:100px" />
+            <input type="button" value="取消" id="cancelBtn" class="btn btn-default" style="margin-left: 30px;" />
+        </div>
+    </div>
+    <div class="divFont" id="printArea" style=" margin-right: auto; margin-left: auto;" hidden>
+        <div>
+            <br />
+            <div style=" text-align:center">
+                <label>营业月报表</label>
+            </div>
+            <div style=" text-align:center">
+                站点名称:&nbsp;<label id="zdmc1"></label>
+                <br />
+                <label id="bdate2"></label>至<label id="edate2"></label>
+                <br />
+                <table id="printTable1" class="printTable"></table>
+            </div>
+        </div>
+        <div>
+            <br /><br />
+            <div style=" text-align:center">
+                <label>预冲账报表</label>
+            </div>
+            <div style=" text-align:center">
+                站点:&nbsp;<label id="zdmc2"></label>
+                <br />
+                <label id="bdate3"></label>至<label id="edate3"></label>
+                <br />
+                <table id="printTable2" class="printTable"></table>
+            </div>
+        </div>
+    </div>
+    <div id="div4" style="text-align:center; margin-right: auto; margin-left: auto;" hidden>
+        <br />
+        <input type="button" value="打印" id="printBtn" class="btn btn-default" style="margin-left:400px;width: 70px" />
+        <input type="button" value="返回" id="backBtn" class="btn btn-default" style="margin-left: 100px; width: 70px" />
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#bdate1").ligerDateEditor();
+            $("#edate1").ligerDateEditor();
+        });
+        var postData = {};
+        var bdate, edate;
+        $("#yybbBtn").click(function () {
+            bdate = $("#bdate1").val();
+            edate = $("#edate1").val();
+            if (bdate == "" || edate == "")
+                $.ligerDialog.warn("请输入正确时段！");
+            else {
+                postData = {
+                    bDate: bdate,
+                    eDate: edate
+                };
+                $.post("../ReportPrint/MonthReportPrint", postData, yysj_Back);
+            }
+        });
+        function yysj_Back(data) {
+            if (data == "输入时间不符！" || data == "无营业数据！")
+                $.ligerDialog.warn(data);
+            else {
+                $("#bdate2").html(bdate);
+                $("#edate2").html(edate);
+                $("#bdate3").html(bdate);
+                $("#edate3").html(edate);
+                //展示营业月报表
+                var monthReportList = data.monthReportList;
+                var total_cs = 0;
+                var total_ql = 0.0;
+                var total_je = 0.0;
+                var str1 = "<tr class='printTr'><td class='printTd'>售卡日期</td><td class='printTd'>售卡次数</td><td class='printTd'>总气量</td><td class='printTd'>总金额</td></tr>";
+                for (var i = 0; i < monthReportList.length; i++) {
+                    str1 += "<tr class='printTr'><td class='printTd'>" +
+                    monthReportList[i].date + "</td><td class='printTd'>" +
+                    monthReportList[i].date_cs + "</td><td class='printTd'>" +
+                    monthReportList[i].date_ql + "</td><td class='printTd'>" +
+                    monthReportList[i].date_je + "</td></tr>"
+                    total_cs += monthReportList[i].date_cs;
+                    total_ql += monthReportList[i].date_ql;
+                    total_je += monthReportList[i].date_je;
+                }
+                str1 += "<tr><td class='printTd'>合计</td><td class='printTd'>" + total_cs +
+                                               "</td><td class='printTd'>" + total_ql +
+                                               "</td><td class='printTd'>" + total_je +
+                                               "</td></tr>";
+                $("#printTable1").empty();
+                $("#printTable1").append(str1);
+
+                //展示预冲账报表
+                var yczList = data.yczList;
+                var total_yczql = 0.0;
+                var total_yczje = 0.0;
+                var str2 = "<tr class='printTr'><td class='printTd'>用户编号</td><td class='printTd'>次数</td><td class='printTd'>气量</td><td class='printTd'>金额</td><td class='printTd'>日期</td><td class='printTd'>发票号</td></tr>";
+                for (var i = 0; i < yczList.length; i++) {
+                    str2 += "<tr class='printTr'><td class='printTd'>" +
+                    yczList[i].ywbh + "</td><td class='printTd'>" +
+                    yczList[i].skcs + "</td><td class='printTd'>" +
+                    yczList[i].skql + "</td><td class='printTd'>" +
+                    yczList[i].skje + "</td><td class='printTd'>" +
+                    yczList[i].skrq + "</td><td class='printTd'>" +
+                    yczList[i].fpbh + "</td></tr>"
+                    total_yczql += yczList[i].skql;
+                    total_yczje += yczList[i].skje;
+                }
+                str2 += "<tr><td class='printTd'>总次数" + yczList.length +
+                                               "</td><td class='printTd'></td><td class='printTd'>" + "总气量" + total_yczql +
+                                               "</td><td class='printTd'>" + "总金额" + total_yczje +
+                                               "</td><td class='printTd'></td><td class='printTd'></td></tr>";
+                $("#printTable2").empty();
+                $("#printTable2").append(str2);
+                $("#printArea").show();
+                $("#div4").show();
+            }
+        }
+        $("#cancelBtn").click(function () {
+            $("#div1").hide();
+            $("#printArea").hide();
+        });
+        $("#backBtn").click(function () {
+            $("#printArea").hide();
+            $("#div4").hide();
+        });
+        $("#printBtn").bind("click", function (event) {
+            $("#printArea").printArea();
+        });
+    </script>
+</body>
+</html>
+
+

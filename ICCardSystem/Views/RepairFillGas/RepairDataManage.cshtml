@@ -1,0 +1,82 @@
+﻿<html>
+<head>
+    <title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div id="RepairData" style="clear:both;margin-left:30px; margin-top:100px;  width:900px">
+        <label>用户维修数据管理</label>
+        <br />
+        <br />
+        <div id="repairinfo">  
+            <label>维修单信息</label>
+            <br />
+            <br />         
+            <table>
+                <tr>
+                    <td>用户编号</td><td><input type="text" id="ywbh" name="ywbh" disabled="disabled" /></td>
+                    <td>维修日期</td><td><input type="text" id="xlsj" name="xlsj" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>维修单编号</td><td><input type="text" id="wxdbh" name="wxdbh" disabled="disabled" /></td>
+                    <td>是否换表</td><td><input type="text" id="hb" name="hb" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>表止码</td><td><input type="text" id="bzm" name="bzm" disabled="disabled" /></td>
+                </tr>
+            </table>
+        </div>
+        <div id="fillinfo" style="clear:both" hidden>
+            <label>【需向用户补气，补气信息如下】</label>
+            <br />
+            <br /> 
+            <table>
+                <tr>
+                    <td>补气总量</td>
+                    <td><input type="text" id="filltotal" name="filltotal" disabled="disabled" /></td>
+                    <td>已补气量</td>
+                    <td><input type="text" id="filled1" name="filled1" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>应补气量</td>
+                    <td><input type="text" id="filling" name="filling" disabled="disabled" /></td>
+                </tr>
+            </table>
+        </div>
+        <div id="fillinfo" style="clear:both" hidden>
+            <label>【用户超用气量，需补交金额，信息如下】</label>
+            <br />
+            <br />
+            <table>
+                <tr>
+                    <td>超用气量</td>
+                    <td><input type="text" id="overusegas" name="overusegas" disabled="disabled" /></td>
+                    <td>超用金额</td>
+                    <td><input type="text" id="overusemoney" name="overusemoney" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>已补气量</td>
+                    <td><input type="text" id="filled2" name="filled2" disabled="disabled" /></td>
+                    <td>已补金额</td>
+                    <td><input type="text" id="filledmoney" name="filledmoney" disabled="disabled" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <input type="button" value="确定" id="submitBtn" style="width:60px" />
+            <input type="button" value="取消" id="cancelBtn" style="margin-left: 60px;" />
+        </div>
+    </div>
+
+</body>
+</html>
+

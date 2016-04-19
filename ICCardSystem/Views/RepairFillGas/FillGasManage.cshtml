@@ -1,0 +1,82 @@
+﻿<html>
+<head>
+    <title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div id="FillGasManage" style="clear:both;margin-left:30px; margin-top:100px;  width:900px">
+        <label>补气管理</label>
+        <br />
+        <br />
+        <div>
+            <table>
+                <tr>
+                    <td>业务编号</td>
+                    <td><input type="text" id="ywbh" name="ywbh" disabled="disabled" /></td>
+                    <td>姓名</td>
+                    <td><input type="text" id="hm" name="hm" disabled="disabled" /></td>
+                    <td>电话</td>
+                    <td><input type="text" id="tel" name="tel" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>家庭住址</td>
+                    <td><input type="text" id="zz" name="zz" style="width:250px" disabled="disabled" /></td>                   
+                </tr>
+                <tr>
+                    <td>购气总量</td>
+                    <td><input type="text" id="gqzl" name="gqzl" disabled="disabled" /></td>
+                    <td>表止码</td>
+                    <td><input type="text" id="bzm" name="bzm" disabled="disabled" /></td>
+                    <td>已补气量</td>
+                    <td><input type="text" id="filled" name="filled" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>补气量</td>
+                    <td><input type="text" id="bql" name="bql" /></td>                   
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="xg" name="xg" />是否需要续购</td>
+                </tr>
+                <tr>
+                    <td>续购气量</td>
+                    <td><input type="text" id="xgql" name="xgql" /></td>
+                </tr>
+                <tr>
+                    <td>续购金额</td>
+                    <td><input type="text" id="xgje" name="xgje" /></td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear:both">
+            <label>IC卡内信息显示</label>
+            <table>
+                <tr>
+                    <td>补气前IC卡内信息</td>
+                    <td><input type="text" id="infobefore" name="infobefore" disabled="disabled"/></td>
+                </tr>
+                <tr>
+                    <td>补气后IC卡内信息</td>
+                    <td><input type="text" id="infoafter" name="infoafter" disabled="disabled" /></td>
+                </tr>
+            </table>
+        </div>
+        
+
+        <div>
+            <input type="button" value="确认补气" id="confirmBtn" style="width:60px" />
+            <input type="button" value="重新读卡" id="readaginBtn" style="width: 60px;margin-left: 60px;" disabled="disabled" />
+            <input type="button" value="返回" id="returnBtn" style="margin-left: 60px;" />
+        </div>
+    </div>
+
+</body>
+</html>
+

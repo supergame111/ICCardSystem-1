@@ -1,0 +1,45 @@
+﻿
+
+<html>
+<head>
+    <title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div class="divFont">
+        <div style="margin-top: 10px;">
+            <label>维修资料提取</label>
+            <br />
+            <br />
+            <table>
+                <tr>
+                    <td>单据查找方式</td>
+                    <td>
+                        <select id="choose">
+                            <option>IC卡号</option>
+                            <option>维修编号</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>查找内容</td>
+                    <td><input type="text" id="queryContent" name="queryContent" style="width:250px" /></td>
+                </tr>             
+            </table>
+        </div>
+        <div style="clear:both">
+            <input type="button" id="queryBtn" value="确定" />
+            <input type="button" id="returnBtn" value="返回" />
+        </div>
+    </div>   
+
+</body>
+</html>

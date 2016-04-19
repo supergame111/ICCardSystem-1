@@ -1,0 +1,315 @@
+﻿<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/core/base.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="all" class="divFont" style="margin-top:20px;margin-left:30px">
+        <div>
+            <h4>选择管理类型</h4>
+        </div>
+        <div>
+            <br />
+            <input type="button" id="userAddBtn" value="用户类型的添加" class="btn btn-default" style="width:150px" />
+            <input type="button" id="userChangeBtn" value="用户类型的修改" class="btn btn-default" style="width:150px;margin-left:50px" />
+            <input type="button" id="JdlxAddBtn" value="建档类型添加" class="btn btn-default" style="width: 150px; margin-left: 50px" />
+            <input type="button" id="JdlxChangeBtn" value="建档类型修改" class="btn btn-default" style="width: 150px; margin-left: 50px" />
+        </div>
+    </div>
+    <div id="kindsAdd" class="divFont" style="margin-top:20px;margin-left:30px;width:600px" hidden>
+        <label>用户类型添加</label>
+        <br />
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>用户类型</td>
+                <td><input type="text" id="ms1" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>气价</td>
+                <td><input type="text" id="qj1" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>购买限量</td>
+                <td><input type="text" id="ckxl1" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>月限量</td>
+                <td><input type="text" id="yxl1" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>表型</td>
+                <td>
+                    <select id="bx1" class="form-control setting" style="width:200px">
+                        <option value="1">民用表</option>
+                        <option value="2">工业用表</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" id="addBtn1" value="添加" class="btn btn-default" style="width:60px" /></td>
+                <td><input type="button" id="cancelBtn1" value="取消" class="btn btn-default" style="width:60px" /></td>
+            </tr>
+        </table>
+    </div>
+    <div id="kindsChange" class="divFont" style="margin-top: 20px; margin-left: 30px;width:600px" hidden>
+        <label>用户类型修改</label>
+        <br />
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>用户类型</td>
+                <td>
+                    <select id="select2" class="form-control setting" style="width:200px"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>气价</td>
+                <td><input type="text" id="qj2" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>购买限量</td>
+                <td><input type="text" id="ckxl2" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>月限量</td>
+                <td><input type="text" id="yxl2" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td>表型</td>
+                <td>
+                    <select id="bx2" class="form-control setting" style="width:200px" disabled>
+                        <option value="1">民用表</option>
+                        <option value="2">工业用表</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" id="changeBtn" class="btn btn-default" value="修改" style="width:60px" /></td>
+                <td><input type="button" id="cancelBtn2" class="btn btn-default" value="取消" style="width:60px" /></td>
+            </tr>
+        </table>
+    </div>
+    <div id="JdlxAdd" class="divFont" style="margin-top: 20px; margin-left: 30px; width: 600px" hidden>
+        <label>建档类型添加</label>
+        <br />
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>建档类型</td>
+                <td><input type="text" id="ms3" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="addBtn3" class="btn btn-default" value="添加" style="width:60px" /></td>
+                <td><input type="button" id="cancelBtn3" class="btn btn-default" value="取消" style="width:60px" /></td>
+            </tr>
+        </table>
+    </div>
+    <div id="JdlxChange" class="divFont" style="margin-top: 20px; margin-left: 30px; width: 600px" hidden>
+        <label>建档类型修改</label>
+        <br />
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>原建档类型</td>
+                <td>
+                    <select id="select4" class="form-control setting" style="width:200px"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>新建档类型</td>
+                <td><input type="text" id="ms4" class="form-control setting" style="width:200px" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="changeBtn4" class="btn btn-default" value="修改" style="width:60px" /></td>
+                <td><input type="button" id="cancelBtn4" class="btn btn-default" value="取消" style="width:60px" /></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var yhlx, ms, qj, ckxl, yxl, bx;
+        var postData = {};
+        var backData;
+
+        $("#userAddBtn").click(function () {
+            $("#all").hide();
+            $("#kindsAdd").show();
+        });
+
+        //选择用户类型修改
+        $("#userChangeBtn").click(function () {
+            postData = {
+                yhlx: -1
+            };
+            $.post("../SystemFunction/userChangeBtn", postData, function (data) {
+                backData = data;
+                var str = "";
+                for (var i = 0; i < data.length; i++)
+                    str += "<option value='" + data[i].yhlx + "'>" + data[i].ms + "</option>";
+                $("#select2").empty();
+                $("#select2").append(str);
+                //alert(data[0].qj)
+                $("#qj2").val(data[0].qj);
+                $("#ckxl2").val(data[0].ckxl);
+                $("#yxl2").val(data[0].yxl);
+                //alert(data[0].bx)
+                //$("#bx2 option:selected").removeAttr("selected");
+                $("#bx2 option").eq(data[0].bx - 1).prop("selected", true);
+            });
+            $("#all").hide();
+            $("#kindsChange").show();
+        });
+
+        //用户类型修改select改变时
+        $("#select2").change(function () {
+            var yhlx = $("#select2").val();
+            //alert(yhlx)
+            var postdata2 = {};
+            postData2 = {
+                yhlx: yhlx
+            };
+            $.post("../SystemFunction/UserKinds_Change", postData2, function (data) {
+                $("#qj2").val(data.qj);
+                $("#ckxl2").val(data.ckxl);
+                $("#yxl2").val(data.yxl);
+                //$("#bx2 option:selected").removeAttr("selected");
+                $("#bx2 option").eq(data.bx - 1).prop("selected", true);
+            });
+        });
+
+        //用户添加按钮触发
+        $("#addBtn1").click(function () {
+            ms = $("#ms1").val();
+            qj = $("#qj1").val();
+            ckxl = $("#ckxl1").val();
+            yxl = $("#yxl1").val();
+            bx = $("#bx1").val();
+            var str = "用户类型添加";
+            PostFunction(ms, qj, ckxl, yxl, bx, str);
+            //alert(bx);
+        });
+
+        //用户类型修改按钮触发
+        $("#changeBtn").click(function () {
+            var yhlx, ms, qj, ckxl, yxl, bx;
+            ms = $("#select2 option:selected").text();
+            qj = $("#qj2").val();
+            ckxl = $("#ckxl2").val();
+            yxl = $("#yxl2").val();
+            bx = $("#bx2").val();
+            var str = "用户类型修改";
+            PostFunction(ms, qj, ckxl, yxl, bx, str);
+        });
+
+        function PostFunction(ms, qj, ckxl, yxl, bx, str) {
+            if (ms == "" || qj == "" || ckxl == "" || yxl == "") {
+                $.ligerDialog.warn("输入信息不完整！");
+            }
+            else {
+                postData = {
+                    ms: ms,
+                    qj: qj,
+                    ckxl: ckxl,
+                    yxl: yxl,
+                    bx: bx
+                }
+                if (str == "用户类型添加")
+                    $.post("../SystemFunction/UserKindsAdd", postData, function (data) {
+                        if (data == "添加成功！")
+                            $.ligerDialog.success(data);
+                        else
+                            $.ligerDialog.warn(data);
+                    });
+                else
+                    $.post("../SystemFunction/UserKindsChange", postData, function (data) {
+                        //alert(data);
+                        if (data == "修改成功！")
+                            $.ligerDialog.success(data);
+                        else
+                            $.ligerDialog.warn(data);
+                    });
+            }
+        }
+        //用户类型添加取消按钮触发
+        $("#cancelBtn1").click(function () {
+            $("#all").show();
+            $("#kindsAdd").hide();
+        });
+        //用户类型修改取消按钮触发
+        $("#cancelBtn2").click(function () {
+            $("#all").show();
+            $("#kindsChange").hide();
+        });
+        //建档类型添加取消按钮触发
+        $("#cancelBtn3").click(function () {
+            $("#all").show();
+            $("#JdlxAdd").hide();
+        });
+        //建档类型修改取消按钮触发
+        $("#cancelBtn4").click(function () {
+            $("#all").show();
+            $("#JdlxChange").hide();
+        });
+
+        $("#JdlxAddBtn").click(function () {
+            $("#all").hide();
+            $("#JdlxAdd").show();
+        });
+        //建档类型添加按钮触发
+        $("#addBtn3").click(function () {
+            var ms, jdlxId = -1;
+            ms = $("#ms3").val();
+            PostFunction_2(jdlxId, ms);
+        });
+
+        //建档类型修改select改变时
+        $("#JdlxChangeBtn").click(function () {
+            postData = {
+                JdlxId: -1
+            };
+            $.post("../SystemFunction/JdlxChangeBtn", postData, function (data) {
+                backData = data;
+                var str = "";
+                for (var i = 0; i < data.length; i++)
+                    str += "<option value='" + data[i].jdlxId + "'>" + data[i].ms + "</option>";
+                $("#select4").empty();
+                $("#select4").append(str);
+            });
+            $("#all").hide();
+            $("#JdlxChange").show();
+        });
+        //建档类型修改按钮触发
+        $("#changeBtn4").click(function () {
+            var ms, jdlxId;
+            jdlxId = $("#select4").val();
+            ms = $("#ms4").val();
+            var str = "建档类型修改！";
+            PostFunction_2(jdlxId, ms);
+        });
+        function PostFunction_2(jdlxId, ms) {
+            if (ms == "")
+                $.ligerDialog.warn("输入信息不完整！");
+            else {
+                //alert(jdlxId);
+                postData = {
+                    jdlxId: jdlxId,
+                    ms: ms
+                };
+                $.post("../SystemFunction/JdlxAdd_Change", postData, function (data) {
+                    if (data == "添加成功！" || data == "修改成功！")
+                        $.ligerDialog.success(data);
+                    else
+                        $.ligerDialog.warn(data);
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

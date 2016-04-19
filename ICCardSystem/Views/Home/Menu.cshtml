@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Menu</title>
+    <script src="~/lib/ligerUI/js/plugins/ligerAccordion.js"></script>
+</head>
+<body>
+    <div id="accordion" >
+        <div title="售卡管理">
+            <ul>
+                <li url="~/SellCard/FindNewUser">新户售卡</li>
+                <li url="~/Recharge/chongzhi">充  值</li>
+                <li url="~/ApplyICCardNumber/ICCardNumber">申请IC卡号</li>
+                <li url="~/FaKaRecharge/fakaRecharge">发卡充值</li>
+                <li url="~/ClearLastRecharge/YuChongZhangDeal">预冲账处理</li>
+                <li url="*">故障处理</li>
+
+            </ul>
+        </div>
+        <div title="查询统计">
+            <ul>
+                <li url="~/QueryStatistics/ICCardAutoQuery">IC卡自动查询</li>
+                <li url="~/QueryStatistics/UserInfoQuery">用户信息查询</li>
+                <li url="~/QueryStatistics/DataQuery">营业数据查询</li>
+            </ul>
+        </div>
+        <div title="维修补气">
+            <ul>
+                <li url="*">维修资料输入</li>
+                <li url="*">维修补气</li>
+                <li url="*">IC卡擦除</li>
+                <li url="*">用户锁定</li>
+            </ul>
+        </div>
+        <div title="报表打印">
+            <ul>
+                <li url="~/ReportPrint/MonthReportPrint">代售点月报表</li>
+                <li url="~/ReportPrint/PrintInvoice">补打发票</li>
+            </ul>
+        </div>
+        <div title="系统功能">
+            <ul>
+                <li url="~/SystemFunction/ChangePassword">修改密码</li>
+                <li url="*">账务管理</li>
+                <li url="*">原因管理</li>
+                <li url="*">操作员管理</li>
+                <li url="~/SystemFunction/AddOrChange">用户类型管理</li>
+                <li url="~/SystemFunction/AddOrChange">建档类型管理</li>
+                <li url="~/SystemFunction/RepairInfoManage">维修单管理</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#accordion").ligerAccordion();
+            $("#accordion li").click(function () {
+                var url = $(this).attr("url");
+                $("#mainContainer").load(url);
+            });
+            $('ul li').css('padding-left', '15px');
+        })
+    </script>
+</body>
+</html>

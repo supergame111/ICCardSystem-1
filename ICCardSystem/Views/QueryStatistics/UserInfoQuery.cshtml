@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "UserInfoQuery";
+}
+
+
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/core/base.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="../../lib/ligerUI/js/plugins/ligerCheckBox.js" type="text/javascript"></script>
+    <script src="../../lib/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="main" class="divFont" style="margin-top: 10px;width:800px">
+        <label class="col-sm-2 control-label" style="width:150px">用户信息查询</label><br /><br />
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>查询方式选择</td>
+                <td>
+                    <select id="choose" class="form-control setting" style="width:150px">
+                        <option>按业务编号查询</option>
+                        <option>按卡片编号查询</option>
+                        <option>按用户姓名查询</option>
+                        <option>按用户地址查询</option>
+                        <option>按用户电话查询</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>查询内容</td>
+                <td><input type="text" id="queryContent" name="queryContent" class="form-control setting" style="width:250px" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="queryBtn" class="btn btn-default" value="确定" /></td>
+                <td><input type="button" id="cancel" class="btn btn-default" value="取消" /></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $("#queryBtn").click(function () {
+            var postData = {};
+            var queryContent = $("#queryContent").val();
+            var Choose = $("#choose").val();
+
+            if (Choose == "按业务编号查询") {
+                postData = {
+                    ChooseContent: "ywbh",
+                    QueryContent: queryContent
+                };
+            } else if (Choose == "按卡片编号查询") {
+                //alert(queryContent);
+                //alert(ywbh);
+                postData = {
+                    ChooseContent: "kpbh",
+                    QueryContent: queryContent
+                };
+
+            } else if (Choose == "按用户姓名查询") {
+                postData = {
+                    ChooseContent: "hm",
+                    QueryContent: queryContent
+                };
+            } else if (Choose == "按用户地址查询") {
+                postData = {
+                    ChooseContent: "zz",
+                    QueryContent: queryContent
+                };
+            } else {
+                postData = {
+                    ChooseContent: "tel",
+                    QueryContent: queryContent
+                };
+            }
+            if (queryContent != '') {
+
+                $.post("../QueryStatistics/UserInfoQuery", postData, queryCallBack);
+            }
+
+            else
+                $.ligerDialog.warn('请输入查询内容！');
+        })
+
+        function queryCallBack(data) {
+            //alert(data);
+            if (data == "../QueryStatistics/UserInfoQuery_Back")
+                $('#mainContainer').load(data);
+            else {
+                $.ligerDialog.warn(data);
+                //  $('#mainContainer').load(data);
+            }
+        }
+        $("#cancel").click(function () {
+            $("#main").hide();
+        });
+    </script>
+
+</body>
+</html>

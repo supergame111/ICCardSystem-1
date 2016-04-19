@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "ICCardAutoQuery";
+}
+
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div class="divFont" id="mainDiv">
+        <label class="col-sm-2 control-label">卡内信息查询</label>
+        <br />
+        <label class="col-sm-2 control-label">IC卡内信息</label>
+        <table class="table table-condensed tabFont">
+            <tr>
+                <td>用户编号</td>
+                <td><input type="text" id="ywbh" name="ywbh" class="form-control setting" style="width:200px" disabled="disabled" value="1" /></td>
+                <td>用户姓名</td>
+                <td><input type="text" id="hm" name="hm" class="form-control setting" style="width:200px" disabled="disabled" /></td>
+                <td>用户电话</td>
+                <td><input type="text" id="tel" name="tel" class="form-control setting" style="width:200px" disabled="disabled" /></td>
+            </tr>
+            <tr>
+                <td>用户地址</td>
+                <td><input type="text" id="zz" name="zz" class="form-control setting" disabled="disabled" style="width:300px" /></td>
+            </tr>
+            <tr>
+                <td>卡内气量</td>
+                <td><input type="text" id="knql" name="knql" class="form-control setting" style="width:200px" disabled="disabled" /></td>
+                <td>购气总量</td>
+                <td><input type="text" id="gqzl" name="gqzl" class="form-control setting" style="width:200px" disabled="disabled" /></td>
+                <td>购气次数</td>
+                <td><input type="text" id="gqcs" name="gqcs" class="form-control setting" style="width:200px" disabled="disabled" /></td>
+            </tr>
+        </table>
+        <br />
+        <input type="button" value="读卡" id="ReadCardBtn " class="btn btn-default" style="margin-left: 250px; width: 100px" />
+        <input type="button" value="详细" id="DetailInfoBtn" class="btn btn-default" style="margin-left: 100px; margin-right: 100px; width: 100px" />
+        <input type="button" value="返回" id="BackBtn" class="btn btn-default" style="width: 100px" />
+    </div>
+    <script type="text/javascript">
+        $("#DetailInfoBtn").click(function () {
+            var Ywbh = $("#ywbh").val();
+            var postData = {};
+            if (Ywbh != '') {
+                postData = {
+                    ChooseContent: "ywbh",
+                    QueryContent: Ywbh
+                };
+                $.post("../QueryStatistics/UserInfoQuery", postData, queryCallBack);
+            }
+        })
+        function queryCallBack(data) {
+            if (data == "../QueryStatistics/UserInfoQuery_Back")
+                $("#mainContainer").load(data);
+            else
+                $.ligerDialog.warn(data);
+        }
+
+    </script>
+</body>
+</html>

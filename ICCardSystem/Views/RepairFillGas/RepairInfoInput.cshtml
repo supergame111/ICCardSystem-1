@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div id="RepairInput" style="clear:both;margin-left:30px; margin-top:100px;  width:900px">
+        <label>维修单输入</label>
+        <br />
+        <br />
+        <table id="table1">
+            <tr>
+                <td>业务编号</td>
+                <td><input id="ywbh" type="text" name="ywbh"/></td>
+            </tr>
+            <tr>
+                <td>用户姓名</td>
+                <td><input id="hm" type="text" name="hm" disabled="disabled"/></td>               
+            </tr>
+            <tr>
+                <td>联系电话</td>
+                <td><input id="tel" type="text" name="tel" disabled="disabled" /></td>
+            </tr>
+            <tr>
+                <td>用户地址</td>
+                <td><input id="zz" type="text" name="zz" style="width:250px" disabled="disabled" /></td>
+            </tr>
+            <tr>
+                <td>表止码</td>
+                <td>
+                    <input id="bzm" type="text" name="bzm" />
+                </td>
+            </tr>
+            <tr>
+                <td>剩余气量</td>
+                <td>
+                    <input id="syql" type="text" name="syql" />
+                </td>
+            </tr>
+            <tr>
+                <td>表具更换</td>
+                <td><select id="hb">
+                    <option>未换表</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>维修原因</td>
+                <td>
+                    <select id="wxyy">
+                        <option>表坏</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td>
+                    <input type="text" id="bz" name="bz" />
+                </td>
+            </tr>
+        </table>
+        <input type="button" value="添加" id="addBtn" style="width:60px" />
+        <input type="button" value="返回" id="backBtn" style="margin-left: 60px;" />
+       
+    </div>
+
+</body>
+</html>
+

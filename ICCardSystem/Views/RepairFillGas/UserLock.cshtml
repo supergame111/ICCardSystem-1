@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+    <title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div  style="clear:both;margin-left:30px; margin-top:100px;  width:900px">
+        <label>用户锁定解锁管理</label>
+        <br />
+        <br />
+        <div>
+            <table>
+                <tr>
+                    <td>用户编号</td>
+                    <td><input type="text" id="ywbh" name="ywbh"/></td>                    
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" id="hm" name="hm" disabled="disabled" /></td> 
+                    <td>电话</td>
+                    <td><input type="text" id="tel" name="tel" disabled="disabled" /></td> 
+                    
+                </tr>
+                <tr>
+                    <td>地址</td>
+                    <td><input type="text" id="zz" name="zz" style="width:250px" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>详细</td>
+                    <td><textarea rows="5" cols="40" id="detail" disabled="disabled"></textarea></td>
+                </tr>
+                <tr>
+                    <td>操作原因</td>
+                    <td><select id="czyy">
+                        <option>用户用气异常</option>
+                        <option>已解决</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td><textarea rows="5" cols="40" id="bz"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <div style="clear:both">
+            <input type="button" value="锁定" id="lockBtn" style="width:60px" />
+            <input type="button" value="解锁" id="unlockBtn" style="margin-left: 60px;" disabled="disabled"/>
+            <input type="button" value="退出" id="returnBtn" style="margin-left: 60px;" />
+        </div>
+    </div>
+
+</body>
+</html>
+

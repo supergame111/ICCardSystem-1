@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="main" style="clear:both;margin-left:30px; margin-top:50px;  width:900px">
+        <label class="col-sm-2 control-label" style="width:100px">发票打印</label>
+        <br />
+        <br />
+        <div style="clear:both">
+            <h1>补打发票</h1>
+        </div>
+        <div>
+            <p>注意：当打印机故障没有正常打印发票时使用此功能。<br />
+            本功能只能打印最后充值记录票据。
+            </p>
+        </div>
+        <div style="clear:both">
+            <input type="button" value="打印" id="printBtn" class="btn btn-default" style="width:60px" />
+            <input type="button" value="取消" id="cancelBtn" class="btn btn-default" style="margin-left: 60px;" />
+        </div>
+    </div>
+    <script>
+        $("#printBtn").click(function () {
+            $.post("../ReportPrint/PrintData", function (data) {
+                // alert(data);
+                if (data != "")
+                    $("#mainContainer").load(data);
+            });
+        });
+        $("#cancelBtn").click(function () {
+            $("#main").hide();
+        });
+    </script>
+</body>
+</html>
+
+

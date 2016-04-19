@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+    <title></title>
+    <link href="~/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerCheckBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerResizable.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerComboBox.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerForm.js"></script>
+    <script src="~/lib/ligerUI/js/ligerui.all.js"></script>
+</head>
+<body>
+    <div  style="clear:both;margin-left:30px; margin-top:100px;  width:900px">
+        <label>IC卡擦除</label>
+        <br />
+        <br />
+        <div>
+            <div style="clear: both; margin-left: 90px">
+                <h1>IC 卡 初 始 化</h1>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>业务编号</td>
+                        <td><input type="text" id="ywbh" name="ywbh" disabled="disabled" /></td>
+                        <td>售卡次数</td>
+                        <td><input type="text" id="skcs" name="skcs" disabled="disabled" /></td>
+                      
+                    </tr>
+                    <tr>
+                        <td>用户姓名</td>
+                        <td><input type="text" id="hm" name="hm" disabled="disabled" /></td>
+                        <td>购气日期</td>
+                        <td><input type="text" id="gqrq" name="gqrq"  disabled="disabled" /></td>
+                    </tr>
+                    <tr>
+                        <td>家庭地址</td>
+                        <td><input type="text" id="zz" name="zz" style="width:250px" disabled="disabled" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div>
+            <input type="button" value="读卡" id="readcardBtn" style="width:60px" />
+            <input type="button" value="确认擦除" id="confirmwipeBtn" style="margin-left: 60px;" />
+            <input type="button" value="返回" id="returnBtn" style="margin-left: 60px;" />
+        </div>
+    </div>
+
+</body>
+</html>
+

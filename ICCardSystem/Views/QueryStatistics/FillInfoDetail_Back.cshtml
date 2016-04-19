@@ -1,0 +1,135 @@
+﻿
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/lib/ligerUI/js/core/base.js"></script>
+    <script src="~/lib/ligerUI/js/plugins/ligerGrid.js"></script>
+    <script src="~/Scripts/jquery.PrintArea.js"></script>
+    <link href="~/Content/PrintCSS.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="show" class="divFont" style="margin-top:20px;margin-left:30px">
+        <br />
+        <div style="width:600px">
+            <label class="col-sm-2 control-label" style="width:200px">用户补气信息细表</label>
+            <br />
+            <table class="table table-condensed tabFont">
+                <tr>
+                    <td>业务编号</td>
+                    <td><input type="text" id="ywbh" name="ywbh" class="form-control setting" style="width:200px" disabled="disabled" value="@ViewBag.ywbh" /></td>
+                </tr>
+                <tr>
+                    <td>用户姓名</td>
+                    <td><input type="text" id="hm" name="hm" class="form-control setting" style="width:200px" disabled="disabled" value="@ViewBag.hm" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <div id="maingrid" style=" margin-top:30px;  margin-left: 20px; margin-right: 20px; "></div>
+        </div>
+        <div style="clear:both; margin-top:30px">
+            <br />
+            <input type="button" value="打印预览" id="PrintViewBtn" class="btn btn-default" style="margin-left: 200px; width: 100px" />
+            <input type="button" value="返回" id="BackBtn" class="btn btn-default" style="margin-left: 100px; width: 100px" />
+        </div>
+    </div>
+    <div class="divFont" id="print" hidden>
+        <div id="printArea" style="text-align: center;margin-right: auto; margin-left: auto;">
+            <table style="margin:auto">
+                <tr>
+                    <td style="text-align:center"><h3>用户补气明细</h3></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center"><p>============================</p></td>
+                </tr>
+            </table>            
+            <table style="margin:auto">
+                <tr>
+                    <td>用户编号：</td>
+                    <td>@ViewBag.ywbh</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>用户姓名：</td>
+                    <td>@ViewBag.hm</td>
+                </tr>
+            </table>
+            <br />
+            <table class="printTable">
+                <tr class="printTr">
+                    <td class="printTd">购气总量</td>
+                    <td class="printTd">表止码</td>
+                    <td class="printTd">总补气量</td>
+                    <td class="printTd">已补气量</td>
+                    <td class="printTd">补气完成</td>
+                </tr>
+                @foreach (var item in ViewBag.bqxxblist)
+                {
+                    <tr class="printTr">
+                        <td class="printTd">@item.gqzl</td>
+                        <td class="printTd">@item.bzm</td>
+                        <td class="printTd">@item.bcbqzl</td>
+                        <td class="printTd">@item.ybql</td>
+                        @if (item.bqwc == 1)
+                        {
+                            <td class="printTd">是</td>
+                        }
+                        else
+                        {
+                            <td class="printTd">否</td>
+                        }
+
+                    </tr>
+                }
+            </table>
+        </div>
+        <div style="text-align: center;margin-right: auto; margin-left: auto;">
+            <br />
+            <input type="button" value="打印" id="PrintBtn" class="btn btn-default" style="margin-left: 50px; width: 100px" />
+            <input type="button" value="返回" id="BackBtn2" class="btn btn-default" style="margin-left: 100px; width: 100px" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        var gridData = {};
+        gridData.Rows=@Html.Raw(Json.Encode(@ViewBag.bqxxblist1))
+        $('#maingrid').ligerGrid({
+            columns: [
+                    { display: '购气总量', name: 'gqzl'},
+                    { display: '表止码', name: 'bzm' },
+                    { display: '总补气量', name: 'bcbqzl' },
+                    { display: '已补气量', name: 'ybql'},
+                    { display: '操作员', name: 'czy'}
+            ],
+
+            enabledEdit: true,
+            width: '50%',
+            data: gridData
+
+        })
+        $("#PrintViewBtn").click(function () {
+            $("#show").hide();
+            $("#print").show();
+        });
+        $("#BackBtn").click(function () {
+            var postData = {};
+            var ywbh = $("#ywbh").val();
+            postData = {
+                ChooseContent: "ywbh",
+                QueryContent: ywbh
+            }
+            $.post("../QueryStatistics/UserInfoQuery", postData, queryCallBack);
+        });
+        function pueryCallBack(data) {
+            $('#mainContainer').load(data);
+        }
+        //打印
+        $("#PrintBtn").bind("click", function (event) {
+            $("#printArea").printArea();
+        });
+        $("#BackBtn2").click(function () {
+            $("#show").show();
+            $("#print").hide();
+        });
+    </script>
+</body>
+</html>
